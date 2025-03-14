@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6818618917045390603}
   - component: {fileID: 4845119495437159271}
   - component: {fileID: 7633269841445391833}
+  - component: {fileID: 8310622397417770402}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1c728d49a2dc544a660e8701e8fad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impactEffect: {fileID: 8866486364937479378, guid: b9d63ff47f6f2dd44bbb3f3ef9e0cf3d, type: 3}
 --- !u!50 &6818618917045390603
 Rigidbody2D:
   serializedVersion: 5
@@ -147,6 +149,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 3
+--- !u!114 &8310622397417770402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359323060679528746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1248b7e61f387e945a39409972a5b6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - {fileID: 8300000, guid: 807fa88b53d2211438a34b2112d1b75a, type: 3}
+  - {fileID: 8300000, guid: d1e527c9db096604a84824049e6479ee, type: 3}
+  - {fileID: 8300000, guid: 93e532233be7ff248bf2256291494ce2, type: 3}
+  - {fileID: 8300000, guid: 8b1f391e237263f4c91a7dc5bd7dedda, type: 3}
+  - {fileID: 8300000, guid: 03e994cfb857dd8469f5286d844e6470, type: 3}
+  audioSource: {fileID: 0}
 --- !u!1 &8579055854654603629
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,8 +194,8 @@ Transform:
   m_GameObject: {fileID: 8579055854654603629}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 0, z: -0.042006306}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: -0.011, y: 0.045, z: -0.042006306}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3153043809507913679}
@@ -223,8 +244,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -4576278662615577577, guid: e9551dda90cc8f34c90f89311d9db8e7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

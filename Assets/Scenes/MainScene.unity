@@ -207,10 +207,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539519649683d844b9914896620a0121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 0
   birdEnterEvent:
     m_PersistentCalls:
       m_Calls: []
+  birdExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  activated: 0
 --- !u!50 &118717600
 Rigidbody2D:
   serializedVersion: 5
@@ -1020,10 +1023,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d838dcb4791f445b5bf98368f138e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 1
   birdEnterEvent:
     m_PersistentCalls:
       m_Calls: []
+  birdExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  activated: 1
   forceAttractGravity: 10
   invert: 1
 --- !u!61 &862605286
@@ -1645,10 +1651,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539519649683d844b9914896620a0121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 0
   birdEnterEvent:
     m_PersistentCalls:
       m_Calls: []
+  birdExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  activated: 0
 --- !u!50 &1939963985
 Rigidbody2D:
   serializedVersion: 5
@@ -1824,10 +1833,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539519649683d844b9914896620a0121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 0
   birdEnterEvent:
     m_PersistentCalls:
       m_Calls: []
+  birdExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  activated: 0
 --- !u!50 &1961849007
 Rigidbody2D:
   serializedVersion: 5

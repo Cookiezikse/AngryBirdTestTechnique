@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -90,6 +91,12 @@ public abstract class Bird : MonoBehaviour
     /// </summary>
     protected CircleCollider2D circleColliderTrigger;
 
+    /// <summary>
+    /// The game object used to have an effect on collision
+    /// </summary>
+    [SerializeField]
+    protected GameObject impactEffect;
+
     // ------------------------------------------------
 
 
@@ -154,8 +161,13 @@ public abstract class Bird : MonoBehaviour
 
             if (collision.collider.CompareTag("Cube") || collision.collider.CompareTag("Enemy"))
             {
+
+                GetComponent<SoundInteractable>().PlayAudioRandom();
+
+
                 impacted = true;
 
+                Instantiate(impactEffect, transform.position, Quaternion.identity, GameObject.Find("Effects").transform);
                 Debug.Log("CUBE OR ENEMY");
                 OnImpact?.Invoke();
                 OnImpactGameObject?.Invoke(collision.gameObject);
@@ -165,6 +177,7 @@ public abstract class Bird : MonoBehaviour
             if (collision.collider.CompareTag("Floor"))
             {
                 circleColliderTrigger.enabled = false;
+                Instantiate(impactEffect, transform.position, Quaternion.identity, GameObject.Find("Effects").transform);
             }
         }
     }

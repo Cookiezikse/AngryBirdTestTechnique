@@ -140,7 +140,17 @@ public abstract class Bird : MonoBehaviour
     /// </summary>
     protected void Update()
     {
-        if (launched) timer += Time.deltaTime;
+        if (launched)
+        {
+            timer += Time.deltaTime;
+
+            if (Input.GetKeyDown(KeyCode.Space)) 
+            {
+                OnTouch?.Invoke();
+                OnTouchEffect();
+                touchCount++;
+            }
+        }
 
         UpdateBird();
     }
@@ -162,7 +172,7 @@ public abstract class Bird : MonoBehaviour
             if (collision.collider.CompareTag("Cube") || collision.collider.CompareTag("Enemy"))
             {
 
-                GetComponent<SoundInteractable>().PlayAudioRandom();
+                if (!impacted) GetComponent<SoundInteractable>().PlayAudioRandom();
 
 
                 impacted = true;

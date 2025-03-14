@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -40,7 +41,22 @@ public class Catapult : MonoBehaviour
     /// <summary>
     /// The line renderer used to draw the lines of the catapults 
     /// </summary>    
-    public LineRenderer lr;
+    public LineRenderer lrRight;
+
+    /// <summary>
+    /// The line renderer used to draw the lines of the catapults 
+    /// </summary>    
+    public LineRenderer lrLeft;
+
+    /// <summary>
+    /// The point that is used to draw the line on the catapult
+    /// </summary>
+    public Transform pointLeft;
+
+    /// <summary>
+    /// The point that is used to draw the line on the catapult
+    /// </summary>
+    public Transform pointRight;
 
     /// <summary>
     /// Value when the catapult cannot throw another bird because there are no other birds to throw
@@ -84,6 +100,11 @@ public class Catapult : MonoBehaviour
     /// </summary>
     protected Trajectory trajectory;
 
+    /// <summary>
+    /// The audio source used to make sound for the catapult
+    /// </summary>
+    protected AudioSource audioSource;
+
     //-----------------------------------------------------
 
     /// <summary>
@@ -91,14 +112,21 @@ public class Catapult : MonoBehaviour
     /// </summary>
     protected void Start()
     {
+
+        audioSource = GetComponent<AudioSource>();
+
         if (GetComponent<LineRenderer>() == null)
         {
-            lr = transform.AddComponent<LineRenderer>();
+            lrRight = transform.AddComponent<LineRenderer>();
         } else
         {
-            lr = GetComponent<LineRenderer>();
+            lrRight = GetComponent<LineRenderer>();
         }
-        lr.positionCount = 2;
+        lrRight.positionCount = 2;
+
+        lrLeft = GetComponentInChildren<LineRenderer>();
+
+        lrLeft.positionCount = 2;
         
 
         GameObject birdsGameObject = GameObject.Find("Birds");
@@ -116,6 +144,16 @@ public class Catapult : MonoBehaviour
         currentBird = birds[currentBirdIndex];
 
         trajectory = GetComponentInChildren<Trajectory>();
+
+
+        lrRight.SetPosition(0, pointRight.position);
+
+        lrLeft.SetPosition(0, pointLeft.position);
+
+        lrRight.SetPosition(1, pointRight.position);
+
+        lrLeft.SetPosition(1, pointLeft.position);
+
 
         StartCatapult();
     }
@@ -176,8 +214,10 @@ public class Catapult : MonoBehaviour
             ((startPoint - endPoint).normalized * GetDistanceClamped() * -1);
 
 
-        lr.SetPosition(0, startPointBird.position);
-        lr.SetPosition(1, currentBird.transform.position);
+        lrRight.SetPosition(1, currentBird.transform.position);
+        lrLeft.SetPosition(1, currentBird.transform.position);
+
+        Debug.Log(lrLeft.GetPosition(1));
 
     }
 
@@ -228,8 +268,8 @@ public class Catapult : MonoBehaviour
     /// </summary>
     protected void OnMouseUp()
     {
-        lr.SetPosition(0, startPointBird.position);
-        lr.SetPosition(1, startPointBird.position);
+        lrLeft.SetPosition(1, pointLeft.position);
+        lrRight.SetPosition(1, pointRight.position);
 
         // Throw
         if (currentBird == null) return;
@@ -237,6 +277,8 @@ public class Catapult : MonoBehaviour
         Rigidbody2D rbBird = currentBird.GetComponent<Rigidbody2D>();
 
         rbBird.simulated = true;
+
+        audioSource.Play();
 
         currentBird.Launch(GetForceThrow());
         //    .AddListener( () =>

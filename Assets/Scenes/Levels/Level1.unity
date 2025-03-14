@@ -2355,6 +2355,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 378069648029603880, guid: ccd80e4b71edb354087f3d18c5e877b8, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.099998474
+      objectReference: {fileID: 0}
     - target: {fileID: 3589445085080621895, guid: ccd80e4b71edb354087f3d18c5e877b8, type: 3}
       propertyPath: multi
       value: 55
@@ -2425,7 +2429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7520372550207868533, guid: ccd80e4b71edb354087f3d18c5e877b8, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.28082114
+      value: 0.11765891
       objectReference: {fileID: 0}
     - target: {fileID: 7964311147514874712, guid: ccd80e4b71edb354087f3d18c5e877b8, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time

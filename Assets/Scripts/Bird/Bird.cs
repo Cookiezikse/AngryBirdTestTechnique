@@ -97,6 +97,15 @@ public abstract class Bird : MonoBehaviour
     [SerializeField]
     protected GameObject impactEffect;
 
+    /// <summary>
+    /// Score to add when the bird collides with cubes or enemy
+    /// </summary>
+    [SerializeField]
+    protected int scoreToAdd = 100;
+
+    [SerializeField]
+    protected GameObject scoreEffect;
+
     // ------------------------------------------------
 
 
@@ -175,6 +184,10 @@ public abstract class Bird : MonoBehaviour
 
                 if (!impacted) GetComponent<SoundInteractable>().PlayAudioRandom();
 
+                Score.AddScore(scoreToAdd);
+
+                GameObject effect = Instantiate(scoreEffect, transform.position, Quaternion.identity, GameObject.Find("Effects").transform);
+                effect.GetComponent<ScoreEffect>().SetScore(scoreToAdd);
 
                 impacted = true;
 

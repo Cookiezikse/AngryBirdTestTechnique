@@ -24,6 +24,15 @@ public class BomBird : Bird
     {
         if (touchCount >= numberOfTouchAllowed) return;
 
+        foreach (Cube a in cubesInTrigger)
+        {
+            Score.AddScore(scoreToAdd);
+
+            GameObject effect = Instantiate(scoreEffect, transform.position, Quaternion.identity, GameObject.Find("Effects").transform);
+            effect.GetComponent<ScoreEffect>().SetScore(scoreToAdd);
+
+        }
+
         ExplodeCubesAround(forceExplosion);
     }
 }

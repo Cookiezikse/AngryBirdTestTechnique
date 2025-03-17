@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
     /// <summary>
     /// Event when the score is added
     /// </summary>
-    static public UnityEvent<int> OnScoreAdd;
+    //static public UnityEvent<int> OnScoreAdd;
 
     /// <summary>
     /// To get the instance for the score
@@ -51,7 +51,7 @@ public class Score : MonoBehaviour
     {
         score += addScore;
 
-        OnScoreAdd!.Invoke(score);
+        //OnScoreAdd?.Invoke(score);
     }
 
 }

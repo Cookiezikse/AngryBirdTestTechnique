@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 8866486364937479378, guid: b9d63ff47f6f2dd44bbb3f3ef9e0cf3d, type: 3}
+  scoreToAdd: 500
+  scoreEffect: {fileID: 465339562649338359, guid: 5d4e5c08cd98b54409096ebc14326501, type: 3}
   forceExplosion: 500
   numberOfTouchAllowed: 1
 --- !u!50 &2247083666063645259

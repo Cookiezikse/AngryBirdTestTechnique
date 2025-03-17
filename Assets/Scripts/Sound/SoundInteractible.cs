@@ -7,9 +7,14 @@ public class SoundInteractable : MonoBehaviour
 {
 
     [SerializeField]
-    List<AudioClip> audios = new List<AudioClip>();
+    List<AudioClip> audios_1 = new List<AudioClip>();
+
+    [SerializeField]
+    List<AudioClip> audios_2 = new List<AudioClip>();
 
     AudioSource audioSource;
+
+    int indexList = 0;
 
     private void Start()
     {
@@ -17,11 +22,30 @@ public class SoundInteractable : MonoBehaviour
     }
 
 
-    public void PlayAudioRandom()
+    public void PlayAudioRandom(int selectList = 0)
     {
-        int i = Random.Range(0, audios.Count);
 
-        audioSource.clip = audios[i];
+        indexList = selectList;
+
+        int i = 0;
+
+        switch (indexList)
+        {
+            case 0:
+                {
+                    i = Random.Range(0, audios_1.Count);
+                    audioSource.clip = audios_1[i];
+                    break;
+                }
+            case 1:
+                {
+                    i = Random.Range(0, audios_2.Count);
+                    audioSource.clip = audios_2[i];
+                    break;
+                }
+        }
+
+
         audioSource.Play();
     }
 

@@ -148,6 +148,7 @@ public abstract class Bird : MonoBehaviour
             {
                 OnTouch?.Invoke();
                 OnTouchEffect();
+                if (circleColliderTrigger.enabled) GetComponent<SoundInteractable>().PlayAudioRandom(1);
                 touchCount++;
             }
         }
@@ -292,6 +293,7 @@ public abstract class Bird : MonoBehaviour
             //Debug.Log("CAPA");
             OnTouch?.Invoke();
             OnTouchEffect();
+            if (circleColliderTrigger.enabled) GetComponent<SoundInteractable>().PlayAudioRandom(1);
             touchCount++;
         }
     }

@@ -182,9 +182,9 @@ public abstract class Bird : MonoBehaviour
             if (collision.collider.CompareTag("Cube") || collision.collider.CompareTag("Enemy"))
             {
 
-                if (!impacted) GetComponent<SoundInteractable>().PlayAudioRandom();
+                if (!impacted || circleColliderTrigger.enabled) GetComponent<SoundInteractable>().PlayAudioRandom();
 
-                Score.AddScore(scoreToAdd);
+                if (circleColliderTrigger.enabled) Score.AddScore(scoreToAdd);
 
                 GameObject effect = Instantiate(scoreEffect, transform.position, Quaternion.identity, GameObject.Find("Effects").transform);
                 effect.GetComponent<ScoreEffect>().SetScore(scoreToAdd);

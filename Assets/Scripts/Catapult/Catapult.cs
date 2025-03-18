@@ -217,7 +217,6 @@ public class Catapult : MonoBehaviour
         lrRight.SetPosition(1, currentBird.transform.position);
         lrLeft.SetPosition(1, currentBird.transform.position);
 
-        Debug.Log(lrLeft.GetPosition(1));
 
     }
 

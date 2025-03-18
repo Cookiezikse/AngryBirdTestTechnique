@@ -34,8 +34,7 @@ public class GravityCube : Cube
     /// </summary>
     protected override void DeactivateCube()
     {
-        GetComponent<SpriteRenderer>().color = Color.grey;
-
+        gameObject.SetActive(false);
     }
 
 }

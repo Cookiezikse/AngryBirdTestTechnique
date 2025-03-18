@@ -29,6 +29,8 @@ public class ScoreEffect : MonoBehaviour
 
         text = GetComponent<TextMeshPro>();
 
+        text.color = Score.GetColorForScore(score);
+
         text.text = score.ToString();
 
         transform.DOMoveY(transform.position.y + 3, duration);

@@ -54,4 +54,31 @@ public class Score : MonoBehaviour
         //OnScoreAdd?.Invoke(score);
     }
 
+    static public Color GetColorForScore(int score)
+    {
+        switch (score)
+        {
+            case 100:
+                {
+                    return Color.magenta;
+                }
+            case 200:
+                {
+                    return Color.red;
+                }
+            case 500:
+                {
+                    return Color.blue;
+                }
+            case 50:
+                {
+                    return Color.green;
+                }
+            default:
+                {
+                    return Color.grey;
+                }
+        }
+    }
+
 }

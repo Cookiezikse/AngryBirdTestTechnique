@@ -157,12 +157,12 @@ public abstract class Bird : MonoBehaviour
             {
                 OnTouch?.Invoke();
                 OnTouchEffect();
-                if (circleColliderTrigger.enabled) GetComponent<SoundInteractable>().PlayAudioRandom(1);
+                if (!impacted && circleColliderTrigger.enabled) GetComponent<SoundInteractable>().PlayAudioRandom(1);
                 touchCount++;
             }
+            UpdateBird();
         }
 
-        UpdateBird();
     }
 
     /// <summary>
@@ -182,7 +182,7 @@ public abstract class Bird : MonoBehaviour
             if (collision.collider.CompareTag("Cube") || collision.collider.CompareTag("Enemy"))
             {
 
-                if (!impacted || circleColliderTrigger.enabled) GetComponent<SoundInteractable>().PlayAudioRandom();
+                if (!impacted && circleColliderTrigger.enabled) GetComponent<SoundInteractable>().PlayAudioRandom();
 
                 if (circleColliderTrigger.enabled) Score.AddScore(scoreToAdd);
 
